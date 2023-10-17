@@ -22,6 +22,9 @@ function App() {
   // * loader on loading currency
   const [loading, setLoading] = useState(false);
 
+  // * error handling
+  const [error, setError] = useState();
+
   // ! FECTCH CURRENCY DATA
   useEffect(() => {
     async function currencyConvertor() {
@@ -32,7 +35,8 @@ function App() {
 
       const data = await res.json();
       // //console.log(data.rates[toCurrency]);
-      setConvertedValue(data.rates[toCurrency]);
+
+      setConvertedValue(data.rates?.[toCurrency]);
       setLoading(false);
     }
 
@@ -70,7 +74,14 @@ function App() {
         <option>CAD</option>
         <option>INR</option>
       </select>
-      <p>converted value: {loading ? <Loader /> : convertedValue}</p>
+      <p>
+        converted value:{' '}
+        {loading ? (
+          <Loader />
+        ) : (
+          <>{!userInput ? 'Currency not defined' : convertedValue} </>
+        )}
+      </p>
     </div>
   );
 }
