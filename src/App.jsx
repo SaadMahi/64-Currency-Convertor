@@ -2,9 +2,22 @@ import './App.css';
 
 function App() {
   return (
-    <>
-      <h1>Currency-Calculator</h1>
-    </>
+    <div>
+      <input type='text' />
+      <select>
+        <option value='USD'>USD</option>
+        <option value='EUR'>EUR</option>
+        <option value='CAD'>CAD</option>
+        <option value='INR'>INR</option>
+      </select>
+      <select>
+        <option value='USD'>USD</option>
+        <option value='EUR'>EUR</option>
+        <option value='CAD'>CAD</option>
+        <option value='INR'>INR</option>
+      </select>
+      <p>OUTPUT</p>
+    </div>
   );
 }
 
